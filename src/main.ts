@@ -1,12 +1,20 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
+import { initDatabase } from './init-db';
 
 async function bootstrap() {
+  await initDatabase();
+
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:3000'],
+    origin: [
+      'http://localhost:5173',
+      'http://localhost:5174',
+      'http://localhost:3000',
+      'https://itstimetoloveme.vercel.app',
+    ],
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     credentials: true,
   });

@@ -1,25 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
-
-@Entity('dates')
-export class DateRequest {
-  @PrimaryGeneratedColumn()
+export interface DateRequest {
   id: number;
-
-  @Column({ default: 'unknown' })
   guestName: string;
-
-  @Column()
   datetime: string;
-
-  @Column()
   activity: string;
-
-  @Column({ default: 'pending' })
   status: string;
-
-  @Column({ nullable: true })
-  message: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
+  message: string | null;
+  createdAt: string;
 }

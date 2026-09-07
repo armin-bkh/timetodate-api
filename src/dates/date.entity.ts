@@ -5,6 +5,9 @@ export class DateRequest {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({ default: 'unknown' })
+  guestName: string;
+
   @Column()
   datetime: string;
 

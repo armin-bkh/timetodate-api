@@ -2,6 +2,10 @@ import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateDateDto {
   @IsString()
+  @IsOptional()
+  guestName?: string;
+
+  @IsString()
   @IsNotEmpty()
   datetime: string;
 
